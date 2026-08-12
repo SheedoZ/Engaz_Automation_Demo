@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#02143f">
+  <title>ENGAZ Automation V2 — ديمو الأتمتة الذكي</title>
+  <link rel="stylesheet" href="v2-theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">تخطَّ إلى محتوى الديمو</a>
+  <header class="demo-header">
+    <div class="header-inner">
+      <a class="brand" href="https://engaz.premiumpower-eg.com/" aria-label="العودة إلى موقع إنجاز"><span class="brand-mark" aria-hidden="true"></span><span class="brand-copy"><strong>ENGAZ</strong><small>BUSINESS OPERATING SYSTEM</small></span></a>
+      <nav class="demo-switch" aria-label="التنقل بين ديموهات V2"><a href="https://clinic.engaz.premiumpower-eg.com/">العيادة</a><a href="https://lab.engaz.premiumpower-eg.com/">المعمل</a><a href="https://automation.engaz.premiumpower-eg.com/" aria-current="page">الأتمتة</a></nav>
+      <div class="header-badges" aria-label="حالة الديمو"><span class="v2-badge">Automation V2</span><span class="simulation-badge">محاكاة آمنة</span></div>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="أقسام نظام الأتمتة">
+      <div class="tenant"><span class="tenant-label">مساحة العمل الحالية</span><strong data-tenant-name>نشاط تجريبي ENGAZ</strong><span class="live-line"><span class="live-dot" aria-hidden="true"></span> الأتمتة جاهزة</span></div>
+      <nav class="side-nav"><button type="button" aria-current="page" data-scroll="automation-overview"><span class="nav-icon" aria-hidden="true">01</span> لوحة التحكم</button><button type="button" data-scroll="automation-flow"><span class="nav-icon" aria-hidden="true">02</span> مسار المتابعة</button><button type="button" data-scroll="automation-leads"><span class="nav-icon" aria-hidden="true">03</span> العملاء المحتملون</button><button type="button" data-scroll="automation-impact"><span class="nav-icon" aria-hidden="true">04</span> الأثر</button></nav>
+      <div class="side-note"><strong>لا إرسال حقيقي</strong>كل رسائل واتساب والتنبيهات والمتابعات هنا خطوات توضيحية تعمل داخل المتصفح فقط.</div>
+    </aside>
+
+    <main class="content" id="mainContent" tabindex="-1">
+      <div class="content-inner">
+        <div class="page-head"><div><span class="page-kicker">AUTOMATION OPERATIONS / V2</span><h1 class="page-title">كل عميل ياخد رد وخطوة تالية</h1><p class="page-summary">تجميع ليدز، تصنيف نية الشراء، متابعة تلقائية، وملخص واضح لصاحب الشغل.</p></div><div class="page-actions"><button class="btn" type="button" id="digestBtn">ملخص ذكي</button><button class="btn btn-primary" type="button" id="newLeadBtn">+ أضف ليد تجريبي</button></div></div>
+
+        <section id="automation-overview" aria-labelledby="automationHeroTitle">
+          <div class="hero-panel"><div class="hero-copy"><span class="hero-eyebrow">LEAD RESPONSE ENGINE / محاكاة</span><h2 id="automationHeroTitle">من أول رسالة لحد المتابعة — من غير ما العميل يضيع.</h2><p id="heroPain">المساعد يصنّف الاهتمام، يشرح سبب الدرجة، ويقترح الخطوة التالية قبل تشغيل أي متابعة.</p><div class="hero-proof"><span>Lead scoring قابل للتفسير</span><span>Next best action</span><span>فروع متابعة حسب الرد</span></div></div><div class="hero-score"><small>زمن أول رد تجريبي</small><strong id="responseScore">02:00</strong><p id="responseNote">بدل متوسط ٦ ساعات يدويًا</p></div></div>
+          <div class="kpi-grid" aria-label="مؤشرات الأتمتة"><article class="kpi"><span class="kpi-label">ليدز اليوم</span><strong class="kpi-value" id="kpiLeads">٠</strong><span class="kpi-meta">من كل القنوات</span></article><article class="kpi"><span class="kpi-label">أولوية مرتفعة</span><strong class="kpi-value" id="kpiHot">٠</strong><span class="kpi-meta trend-warn">تحتاج اتصالًا بشريًا</span></article><article class="kpi"><span class="kpi-label">متابعات في الطابور</span><strong class="kpi-value" id="kpiFollowups">٠</strong><span class="kpi-meta">بعد ٣ و٧ أيام</span></article><article class="kpi"><span class="kpi-label">وقت موفّر أسبوعيًا</span><strong class="kpi-value" id="kpiSaved">٠ س</strong><span class="kpi-meta trend-up">تقدير تجريبي</span></article></div>
+        </section>
+
+        <section class="workspace-grid" id="automation-flow" aria-labelledby="flowTitle">
+          <article class="panel panel-dark">
+            <div class="panel-head"><div><h2 class="panel-title" id="flowTitle">المسار الحي — ٦ خطوات</h2><span class="panel-subtitle">اضغط تشغيل وشاهد الخطوات بالترتيب</span></div><div class="panel-actions"><button class="btn btn-small" type="button" id="resetFlowBtn">إعادة</button><button class="btn btn-primary btn-small" type="button" id="runFlowBtn">شغّل المحاكاة</button></div></div>
+            <div class="panel-body"><div class="workflow" id="workflowSteps" aria-live="polite"></div></div>
+          </article>
+          <div class="stack">
+            <article class="smart-card"><span class="smart-label">NEXT BEST ACTION</span><h3 id="priorityHeadline">جاري تحليل الليدز الحالية</h3><p id="priorityExplanation">الدرجة تعتمد على الكلمات، مصدر الليد، وسرعة التفاعل التجريبية.</p><div class="confidence"><div class="confidence-track" aria-hidden="true"><span id="leadScoreBar" style="width:0%"></span></div><b id="leadScoreValue">٠</b></div><button class="btn btn-block" type="button" id="reviewLeadBtn">راجع الاقتراح</button></article>
+            <article class="panel"><div class="panel-head"><div><h2 class="panel-title">حالة المحرك</h2><span class="panel-subtitle">كل المؤشرات محلية</span></div><span class="status status-info" id="engineState">جاهز</span></div><div class="panel-body"><div class="insight-list" id="engineInsights"></div></div></article>
+          </div>
+        </section>
+
+        <section class="workspace-grid" id="automation-leads" aria-labelledby="leadsTitle">
+          <article class="panel">
+            <div class="panel-head"><div><h2 class="panel-title" id="leadsTitle">صندوق الليدز الموحّد</h2><span class="panel-subtitle">التقييم للمساعدة في ترتيب العمل، وليس قرار بيع تلقائيًا</span></div><div class="panel-actions"><div class="filter-row" aria-label="تصفية الليدز"><button class="filter-btn" type="button" aria-pressed="true" data-filter="all">الكل</button><button class="filter-btn" type="button" aria-pressed="false" data-filter="hot">ساخن</button><button class="filter-btn" type="button" aria-pressed="false" data-filter="followup">متابعة</button><button class="filter-btn" type="button" aria-pressed="false" data-filter="won">تم الرد</button></div></div></div>
+            <div class="panel-body flush"><div class="table-shell"><table class="data-table"><thead><tr><th>العميل</th><th>المصدر</th><th>النية</th><th>الدرجة</th><th>الحالة</th><th>الخطوة التالية</th><th>الإجراء</th></tr></thead><tbody id="leadRows"></tbody></table></div></div>
+          </article>
+          <div class="stack">
+            <article class="panel"><div class="panel-head"><div><h2 class="panel-title">قوالب ذكية</h2><span class="panel-subtitle">تتغير حسب المجال والنية</span></div></div><div class="panel-body"><div class="insight-list" id="templateList"></div></div></article>
+            <article class="panel panel-dark"><div class="panel-head"><div><h2 class="panel-title">إسناد المصدر</h2><span class="panel-subtitle">أين جاءت الفرص الأفضل؟</span></div></div><div class="panel-body" id="sourceSignal"></div></article>
+          </div>
+        </section>
+
+        <section class="workspace-grid" id="automation-impact" aria-labelledby="impactTitle">
+          <article class="panel"><div class="panel-head"><div><h2 class="panel-title" id="impactTitle">الأثر المتوقع من المسار</h2><span class="panel-subtitle">أرقام توضيحية قابلة للاستبدال ببيانات حقيقية</span></div><button class="btn btn-small" type="button" id="branchBtn">جرّب فرع «رد / لم يرد»</button></div><div class="panel-body"><div class="bar-list"><div class="bar-row"><label>زمن الرد اليدوي</label><div class="bar-track"><span style="width:90%"></span></div><b>٦ س</b></div><div class="bar-row"><label>زمن الرد بالنظام</label><div class="bar-track"><span style="width:12%"></span></div><b>٢ د</b></div><div class="bar-row"><label>ليدز بلا متابعة</label><div class="bar-track"><span style="width:76%"></span></div><b>٣٨٪</b></div><div class="bar-row"><label>بعد الأتمتة</label><div class="bar-track"><span style="width:10%"></span></div><b>٤٪</b></div></div></div></article>
+          <div class="stack"><article class="panel panel-dark"><div class="panel-head"><div><h2 class="panel-title">تقدير العائد</h2><span class="panel-subtitle">محسوب من البيانات التجريبية الحالية</span></div></div><div class="panel-body" id="roiSignal"></div></article><article class="panel"><div class="panel-head"><div><h2 class="panel-title">إجراءات سريعة</h2><span class="panel-subtitle">لا رسائل أو اتصالات فعلية</span></div></div><div class="panel-body stack"><button class="btn btn-block" type="button" id="runFlowBtnSecondary">شغّل المسار الآن</button><button class="btn btn-block" type="button" id="digestBtnSecondary">معاينة ملخص صاحب الشغل</button><button class="btn btn-danger btn-block" type="button" id="resetBtn">إعادة بيانات الديمو</button></div></article></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="launch-gate" id="launchGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <section class="gate-card"><div class="gate-top"><span class="brand-mark" aria-hidden="true"></span><span class="v2-badge">Automation V2</span></div><h1 id="gateTitle">ارسم مسار المتابعة لشغلك</h1><p>اختر المجال واكتب اسم النشاط. المحاكاة محلية بالكامل ولا ترسل أي رسالة.</p><form class="gate-form" id="launchForm"><label class="sr-only" for="businessName">اسم النشاط</label><input id="businessName" name="businessName" maxlength="60" required autocomplete="off" placeholder="مثال: نشاط تجريبي ENGAZ"><button class="btn btn-primary" type="submit">افتح النظام</button><label class="sr-only" for="businessType">نوع النشاط</label><select id="businessType" name="businessType" aria-label="نوع النشاط"><option value="shop">شركة تجارية / معرض</option><option value="clinic">عيادة أو مركز طبي</option><option value="food">مطعم أو كافيه</option><option value="lab">معمل أو مركز أشعة</option></select></form><p class="gate-warning" role="note">للعرض فقط — لا تدخل بيانات عملاء حقيقية.</p><div class="gate-facts"><div class="gate-fact"><strong>6-STEP FLOW</strong><span>المسار الأصلي مطور</span></div><div class="gate-fact"><strong>SMART SCORE</strong><span>درجة مع أسباب واضحة</span></div><div class="gate-fact"><strong>ZERO SEND</strong><span>لا اتصال خارجي</span></div></div></section>
+  </div>
+
+  <dialog id="demoDialog" aria-labelledby="dialogTitle"><div class="dialog-head"><div><span class="dialog-kicker" data-dialog-kicker></span><h2 class="dialog-title" id="dialogTitle" data-dialog-title></h2></div><button class="dialog-close" type="button" data-dialog-close aria-label="إغلاق النافذة">×</button></div><div class="dialog-body" data-dialog-body></div><div class="dialog-actions" data-dialog-actions></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><div class="sr-only" id="liveStatus" aria-live="polite"></div>
+
+  <script src="v2-core.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var E = window.EngazV2;
+    var verticals = {
+      shop: { defaultName: 'متجر تجريبي', pain: 'العميل يسأل عن السعر ثم يختفي قبل أن يتابعه أحد.', intent: 'طلب سعر', product: 'المنتج', value: 8200 },
+      clinic: { defaultName: 'عيادة تجريبية', pain: 'الاستفسار يصل في وقت الزحمة وقد لا يتحول إلى حجز.', intent: 'حجز موعد', product: 'الخدمة', value: 1300 },
+      food: { defaultName: 'مطعم تجريبي', pain: 'الطلبات والاستفسارات موزعة بين أكثر من قناة.', intent: 'طلب / حجز', product: 'الطلب', value: 620 },
+      lab: { defaultName: 'معمل تجريبي', pain: 'استفسارات النتائج والأسعار تتكرر ولا تدخل في طابور موحد.', intent: 'سؤال عن تحليل', product: 'الفحص', value: 780 }
+    };
+    var verticalKey = 'shop';
+    var businessName = verticals.shop.defaultName;
+    var originalLeads = [
+      { id: 1, name: 'عميل تجريبي ١', phone: '0000000001', channel: 'Facebook', message: 'محتاج السعر والتسليم الأسبوع ده', intent: 'شراء قريب', status: 'hot', replied: false, ageMinutes: 3 },
+      { id: 2, name: 'عميل تجريبي ٢', phone: '0000000002', channel: 'WhatsApp', message: 'ممكن أعرف التفاصيل والمقاسات؟', intent: 'استكشاف', status: 'followup', replied: false, ageMinutes: 28 },
+      { id: 3, name: 'عميل تجريبي ٣', phone: '0000000003', channel: 'Website', message: 'عايز عرض سعر لشركتي', intent: 'عرض سعر', status: 'hot', replied: false, ageMinutes: 7 },
+      { id: 4, name: 'عميل تجريبي ٤', phone: '0000000004', channel: 'Instagram', message: 'شفت الإعلان وعايزة أعرف أكتر', intent: 'اهتمام', status: 'new', replied: false, ageMinutes: 52 },
+      { id: 5, name: 'عميل تجريبي ٥', phone: '0000000005', channel: 'Referral', message: 'فلان رشحكم وعايز نبدأ', intent: 'شراء قريب', status: 'won', replied: true, ageMinutes: 1 }
+    ];
+    var leads = clone(originalLeads);
+    var filter = 'all';
+    var timers = [];
+    var flowRunning = false;
+    var flowCompleted = false;
+
+    function clone(value) { return JSON.parse(JSON.stringify(value)); }
+    function leadScore(lead) {
+      var score = 28;
+      var text = (lead.message + ' ' + lead.intent).toLowerCase();
+      if (/سعر|عرض|ابدأ|الأسبوع|حجز|شراء/.test(text)) score += 34;
+      if (/تفاصيل|أعرف|استكشاف/.test(text)) score += 14;
+      if (lead.channel === 'Referral') score += 18;
+      if (lead.ageMinutes < 10) score += 10;
+      if (lead.replied) score += 4;
+      return Math.max(15, Math.min(99, score));
+    }
+    function scoreClass(score) { return score >= 75 ? 'risk-high' : score >= 50 ? 'risk-medium' : 'risk-low'; }
+    function scoreText(score) { return score >= 75 ? 'ساخن' : score >= 50 ? 'دافئ' : 'بارد'; }
+    function statusText(status) { return { hot: 'أولوية', followup: 'متابعة', new: 'جديد', won: 'تم الرد' }[status] || 'جديد'; }
+    function nextAction(lead) { var score = leadScore(lead); if (lead.status === 'won') return 'لا إجراء حالي'; if (score >= 75) return 'اتصال بشري خلال ١٥ دقيقة'; if (score >= 50) return 'أرسل سؤال تأهيل'; return 'متابعة خلال ٢٤ ساعة'; }
+
+    function flowSteps() {
+      var v = verticals[verticalKey];
+      return [
+        { title: 'دخل ليد جديد', text: 'من إعلان أو واتساب أو الموقع' },
+        { title: 'تسجيل البيانات', text: 'الاسم والموبايل والرسالة في صندوق موحد' },
+        { title: 'رد ترحيبي فوري', text: 'معاينة رسالة عن ' + v.product + ' — بدون إرسال' },
+        { title: 'تنبيه صاحب الشغل', text: 'ليد بدرجة مرتفعة يحتاج متابعة بشرية' },
+        { title: 'متابعة بعد ٣ أيام', text: 'تتوقف تلقائيًا إذا رد العميل' },
+        { title: 'محاولة إغلاق بعد ٧ أيام', text: 'عرض خطوة واضحة أو إغلاق مهذب للمسار' }
+      ];
+    }
+
+    function renderFlow(states) {
+      var wrap = E.q('#workflowSteps'); E.clear(wrap);
+      flowSteps().forEach(function (step, index) {
+        var state = states && states[index] ? states[index] : 'pending';
+        var row = E.el('div', { className: 'workflow-step' + (state === 'running' ? ' is-running' : state === 'done' ? ' is-done' : '') });
+        var copy = E.el('div'); copy.append(E.el('strong', { text: step.title }), E.el('p', { text: step.text }));
+        row.append(E.el('span', { className: 'step-index', text: '0' + (index + 1) }), copy, E.el('span', { className: 'step-state', text: state === 'done' ? 'اكتمل' : state === 'running' ? 'يعمل الآن' : 'في الانتظار' })); wrap.append(row);
+      });
+    }
+
+    function clearTimers() { timers.forEach(window.clearTimeout); timers = []; flowRunning = false; }
+    function runFlow() {
+      clearTimers(); flowRunning = true; flowCompleted = false; var states = ['pending', 'pending', 'pending', 'pending', 'pending', 'pending']; renderFlow(states); E.q('#engineState').textContent = 'يعمل'; E.q('#runFlowBtn').disabled = true; E.q('#runFlowBtnSecondary').disabled = true; E.announce('بدأت محاكاة مسار المتابعة');
+      flowSteps().forEach(function (step, index) {
+        timers.push(window.setTimeout(function () {
+          if (index > 0) states[index - 1] = 'done'; states[index] = 'running'; renderFlow(states); E.announce('الخطوة ' + (index + 1) + ': ' + step.title);
+          if (index === 5) timers.push(window.setTimeout(function () { states[5] = 'done'; renderFlow(states); flowRunning = false; flowCompleted = true; E.q('#engineState').textContent = 'اكتمل'; E.q('#runFlowBtn').disabled = false; E.q('#runFlowBtnSecondary').disabled = false; E.toast('اكتمل المسار — كل الرسائل كانت محاكاة فقط.', 'success'); E.announce('اكتملت محاكاة مسار المتابعة'); renderInsights(); }, 550));
+        }, index * 850));
+      });
+    }
+
+    function resetFlow() { clearTimers(); flowCompleted = false; renderFlow(); E.q('#engineState').textContent = 'جاهز'; E.q('#runFlowBtn').disabled = false; E.q('#runFlowBtnSecondary').disabled = false; renderInsights(); }
+
+    function visibleLeads() { return leads.filter(function (lead) { if (filter === 'hot') return leadScore(lead) >= 75 && lead.status !== 'won'; if (filter === 'followup') return lead.status === 'followup'; if (filter === 'won') return lead.status === 'won'; return true; }); }
+    function renderLeads() {
+      var rows = E.q('#leadRows'); E.clear(rows);
+      visibleLeads().sort(function (a, b) { return leadScore(b) - leadScore(a); }).forEach(function (lead) {
+        var score = leadScore(lead); var tr = E.el('tr'); var person = E.el('td'); person.append(E.el('span', { className: 'cell-main', text: lead.name }), E.el('span', { className: 'cell-sub', text: lead.phone }));
+        var intent = E.el('span', { className: 'intent', text: lead.intent }); var scoreBadge = E.el('span', { className: 'risk ' + scoreClass(score), text: E.arNumber(score) + ' · ' + scoreText(score) }); var status = E.el('span', { className: 'status ' + (lead.status === 'won' ? 'status-good' : lead.status === 'hot' ? 'status-danger' : lead.status === 'followup' ? 'status-warn' : 'status-muted'), text: statusText(lead.status) }); var action = E.el('button', { className: 'row-action', text: 'راجع', type: 'button', dataset: { leadId: lead.id } });
+        tr.append(person, E.el('td', { text: lead.channel }), E.el('td', { children: [intent] }), E.el('td', { children: [scoreBadge] }), E.el('td', { children: [status] }), E.el('td', { text: nextAction(lead) }), E.el('td', { children: [action] })); rows.append(tr);
+      }); renderMetrics(); renderPriority(); renderTemplates(); renderSources(); renderRoi(); renderInsights();
+    }
+
+    function renderMetrics() {
+      var hot = leads.filter(function (lead) { return leadScore(lead) >= 75 && lead.status !== 'won'; }).length; var followups = leads.filter(function (lead) { return lead.status !== 'won'; }).length * 2; var saved = Math.round(leads.length * 1.6);
+      E.q('#kpiLeads').textContent = E.arNumber(leads.length); E.q('#kpiHot').textContent = E.arNumber(hot); E.q('#kpiFollowups').textContent = E.arNumber(followups); E.q('#kpiSaved').textContent = E.arNumber(saved) + ' س';
+    }
+
+    function topLead() { return leads.filter(function (lead) { return lead.status !== 'won'; }).sort(function (a, b) { return leadScore(b) - leadScore(a); })[0] || null; }
+    function renderPriority() { var lead = topLead(); var score = lead ? leadScore(lead) : 0; E.q('#priorityHeadline').textContent = lead ? lead.name + ' · ' + nextAction(lead) : 'لا توجد أولوية معلقة'; E.q('#priorityExplanation').textContent = lead ? 'السبب: ' + lead.intent + ' من ' + lead.channel + '، والرسالة تحتوي إشارة شراء واضحة.' : 'كل الليدز تمت متابعتها.'; E.q('#leadScoreBar').style.width = score + '%'; E.q('#leadScoreValue').textContent = E.arNumber(score); E.q('#reviewLeadBtn').disabled = !lead; }
+
+    function renderTemplates() { var list = E.q('#templateList'); E.clear(list); var v = verticals[verticalKey]; ['رد فوري عن ' + v.product, 'سؤال تأهيل قصير', 'متابعة بعد ٣ أيام'].forEach(function (title, index) { var item = E.el('div', { className: 'insight' }); var text = E.el('div'); text.append(E.el('strong', { text: title }), E.el('p', { text: index === 0 ? 'أهلًا، وصلنا طلبك وهنرد عليك بالتفاصيل خلال دقائق.' : index === 1 ? 'إيه أهم حاجة بتدور عليها عشان نجهز الرد المناسب؟' : 'بنطمن إن التفاصيل وصلتك، تحب نحدد الخطوة الجاية؟' })); item.append(E.el('span', { className: 'insight-num', text: '0' + (index + 1) }), text); list.append(item); }); }
+
+    function renderSources() { var counts = {}; leads.forEach(function (lead) { counts[lead.channel] = (counts[lead.channel] || 0) + 1; }); var best = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })[0] || '—'; var wrap = E.q('#sourceSignal'); E.clear(wrap); wrap.append(E.el('div', { className: 'result-box', children: [E.el('strong', { text: 'أعلى مصدر حالي: ' + best }), E.el('p', { text: E.arNumber(counts[best] || 0) + ' ليدز من البيانات التجريبية. اربط النتيجة بالإغلاق الفعلي قبل زيادة الميزانية.' })] })); }
+    function renderRoi() { var v = verticals[verticalKey]; var potential = leads.filter(function (lead) { return leadScore(lead) >= 65; }).length * v.value; var wrap = E.q('#roiSignal'); E.clear(wrap); wrap.append(E.el('div', { className: 'result-box', children: [E.el('strong', { text: 'قيمة فرص تجريبية: ' + E.money(potential) }), E.el('p', { text: 'تقدير توضيحي فقط من عدد الليدز ذات الأولوية × متوسط قيمة ' + v.product + '.' })] })); }
+
+    function renderInsights() { var list = E.q('#engineInsights'); E.clear(list); var insights = [{ title: flowCompleted ? 'المسار اكتمل' : 'المسار جاهز', text: flowCompleted ? '٦ خطوات تمت محاكاتها بدون إرسال.' : 'اضغط تشغيل لعرض الخطوات الست.' }, { title: 'حماية من التكرار', text: 'الأرقام المكررة تُراجع قبل إنشاء ليد جديد.' }, { title: 'توقف عند الرد', text: 'إذا رد العميل تتوقف المتابعات التالية.' }]; insights.forEach(function (insight, index) { var item = E.el('div', { className: 'insight' }); var copy = E.el('div'); copy.append(E.el('strong', { text: insight.title }), E.el('p', { text: insight.text })); item.append(E.el('span', { className: 'insight-num', text: '0' + (index + 1) }), copy); list.append(item); }); }
+
+    function showLead(lead) {
+      if (!lead) return; var score = leadScore(lead); var content = E.resultBox(lead.name + ' · درجة ' + E.arNumber(score), lead.message, ['النية المصنفة: ' + lead.intent + '.', 'المصدر: ' + lead.channel + '.', 'الخطوة المقترحة: ' + nextAction(lead) + '.']);
+      E.showDialog({ kicker: 'LEAD REVIEW', title: 'مراجعة الليد', content: content, actions: [{ label: 'معاينة رد مناسب', className: 'btn-primary', close: false, onClick: function () { previewReply(lead); } }, { label: 'سجّل أنه رد', onClick: function () { lead.status = 'won'; lead.replied = true; renderLeads(); E.toast('تم إيقاف المتابعات التالية لهذا الليد.', 'success'); } }] });
+    }
+
+    function previewReply(lead) { var v = verticals[verticalKey]; E.showDialog({ kicker: 'REPLY COPILOT / PREVIEW', title: 'رد مقترح يحتاج مراجعتك', content: E.resultBox('أهلًا ' + lead.name, 'وصلنا سؤالك عن ' + v.product + '. هنجهز لك التفاصيل المناسبة، وممكن تقول لنا الأول إيه أهم حاجة بالنسبة لك؟', ['الاسم والنشاط أُضيفا كنص آمن.', 'المستخدم يراجع الرد قبل أي إرسال.', 'لا يتم الاتصال بواتساب في هذا الديمو.']) }); }
+
+    function reviewTopLead() { var lead = topLead(); if (lead) showLead(lead); }
+
+    function openNewLead() {
+      var form = E.el('form', { className: 'form-grid', attrs: { novalidate: 'novalidate', autocomplete: 'off' } }); var name = E.field({ id: 'leadName', label: 'اسم العميل', required: true, maxLength: 60, placeholder: 'الاسم', attrs: { autocomplete: 'off' } }); var phone = E.field({ id: 'leadPhone', label: 'الموبايل', type: 'tel', required: true, maxLength: 15, placeholder: 'رقم تجريبي', attrs: { inputmode: 'tel', autocomplete: 'off' } }); var channel = E.field({ id: 'leadChannel', label: 'المصدر', type: 'select', options: ['Facebook', 'WhatsApp', 'Website', 'Instagram', 'Referral'].map(function (value) { return { label: value, value: value }; }) }); var message = E.field({ id: 'leadMessage', label: 'رسالة العميل', type: 'textarea', full: true, required: true, maxLength: 180, placeholder: 'مثال: محتاج عرض سعر والتسليم الأسبوع ده' }); var warning = E.el('p', { className: 'field-hint full', text: 'للعرض فقط — لا تدخل بيانات عملاء حقيقية.', attrs: { role: 'note' } }); var error = E.el('p', { className: 'field-error full', attrs: { role: 'alert' } }); form.append(name.wrap, phone.wrap, channel.wrap, message.wrap, warning, error); form.addEventListener('submit', function (event) { event.preventDefault(); });
+      E.showDialog({ kicker: 'SMART CAPTURE', title: 'إضافة ليد تجريبي', content: form, actions: [{ label: 'حلّل وأضف', className: 'btn-primary', close: false, onClick: function () { var person = E.cleanText(name.input.value, 60); var mobile = E.phoneDigits(phone.input.value); var text = E.cleanText(message.input.value, 180); var source = ['Facebook', 'WhatsApp', 'Website', 'Instagram', 'Referral'].indexOf(channel.input.value) >= 0 ? channel.input.value : 'Website'; if (person.length < 2 || !E.validPhone(mobile) || text.length < 4) { error.textContent = 'اكتب اسمًا صحيحًا، رقمًا من ١٠–١٥ رقمًا، ورسالة واضحة.'; return; } if (leads.some(function (lead) { return lead.phone === mobile; })) { error.textContent = 'الرقم موجود بالفعل؛ راجع الليد الحالي بدل إنشاء نسخة مكررة.'; return; } var intent = /سعر|عرض/.test(text) ? 'عرض سعر' : /حجز|موعد/.test(text) ? 'حجز موعد' : /ابدأ|شراء|التسليم/.test(text) ? 'شراء قريب' : 'استكشاف'; var lead = { id: Date.now(), name: person, phone: mobile, channel: source, message: text, intent: intent, status: 'new', replied: false, ageMinutes: 0 }; var score = leadScore(lead); lead.status = score >= 75 ? 'hot' : score >= 50 ? 'followup' : 'new'; leads.push(lead); renderLeads(); E.closeDialog(); E.toast('تمت إضافة الليد بدرجة ' + E.arNumber(score) + ' — بدون أي إرسال.', 'success'); E.announce('أضيف ليد جديد باسم ' + person); } }, { label: 'إلغاء' }] }); window.setTimeout(function () { name.input.focus(); }, 50);
+    }
+
+    function showBranch() { var lead = topLead(); if (!lead) { E.toast('لا يوجد ليد معلّق لتجربة الفرع.', 'warning'); return; } E.showDialog({ kicker: 'FOLLOW-UP BRANCH', title: 'ماذا حدث بعد الرسالة؟', content: E.resultBox(lead.name, 'اختر النتيجة لتوضيح كيف يتغير المسار.', ['إذا رد: تتوقف متابعات اليوم ٣ و٧.', 'إذا لم يرد: تظل المتابعات في الطابور.', 'لا يتم إرسال شيء فعليًا.']), actions: [{ label: 'العميل رد', className: 'btn-primary', onClick: function () { lead.status = 'won'; lead.replied = true; renderLeads(); E.toast('توقفت المتابعات التالية تجريبيًا.', 'success'); } }, { label: 'لم يرد', onClick: function () { lead.status = 'followup'; renderLeads(); E.toast('تم إبقاء متابعات ٣ و٧ أيام في الطابور.', 'success'); } }] }); }
+
+    function showDigest() { var hot = leads.filter(function (lead) { return leadScore(lead) >= 75 && lead.status !== 'won'; }).length; var won = leads.filter(function (lead) { return lead.status === 'won'; }).length; E.showDialog({ kicker: 'OWNER DIGEST / PREVIEW', title: 'ملخص صاحب الشغل', content: E.resultBox('تقرير تجريبي اليوم', E.arNumber(leads.length) + ' ليدز، منهم ' + E.arNumber(hot) + ' أولوية مرتفعة و' + E.arNumber(won) + ' تم الرد عليهم.', ['أسرع رد: دقيقتان بدل ٦ ساعات يدويًا.', 'متابعات بلا إجراء انخفضت تجريبيًا من ٣٨٪ إلى ٤٪.', 'كل الأرقام هنا توضيحية وليست بيانات حملة فعلية.']) }); }
+
+    function setVertical(key, keepName) { if (!verticals[key]) return; verticalKey = key; var v = verticals[key]; if (!keepName) businessName = v.defaultName; E.setTenant(businessName); E.q('#heroPain').textContent = v.pain + ' النظام يحوّلها لمسار واضح وقابل للقياس.'; renderLeads(); resetFlow(); }
+    function resetDemo() { clearTimers(); leads = clone(originalLeads); filter = 'all'; E.qa('[data-filter]').forEach(function (button) { button.setAttribute('aria-pressed', button.dataset.filter === 'all' ? 'true' : 'false'); }); renderLeads(); resetFlow(); E.toast('رجعت بيانات Automation V2 للوضع الأصلي.', 'success'); }
+
+    E.bindDialogClose(); renderFlow(); renderLeads(); E.q('#businessName').value = verticals.shop.defaultName;
+    E.q('#businessType').addEventListener('change', function () { var key = verticals[this.value] ? this.value : 'shop'; E.q('#businessName').value = verticals[key].defaultName; });
+    E.q('#launchForm').addEventListener('submit', function (event) { event.preventDefault(); var key = verticals[E.q('#businessType').value] ? E.q('#businessType').value : 'shop'; var name = E.cleanText(E.q('#businessName').value, 60) || verticals[key].defaultName; businessName = name; verticalKey = key; E.setTenant(name); E.q('#heroPain').textContent = verticals[key].pain + ' النظام يحوّلها لمسار واضح وقابل للقياس.'; E.q('#launchGate').hidden = true; E.q('#mainContent').focus(); renderLeads(); resetFlow(); E.announce('تم فتح Automation V2 باسم ' + name); });
+    E.qa('[data-scroll]').forEach(function (button) { button.addEventListener('click', function () { E.qa('[data-scroll]').forEach(function (item) { item.removeAttribute('aria-current'); }); button.setAttribute('aria-current', 'page'); var target = E.q('#' + button.dataset.scroll); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+    E.qa('[data-filter]').forEach(function (button) { button.addEventListener('click', function () { filter = ['all', 'hot', 'followup', 'won'].indexOf(button.dataset.filter) >= 0 ? button.dataset.filter : 'all'; E.qa('[data-filter]').forEach(function (item) { item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); }); renderLeads(); }); });
+    E.q('#leadRows').addEventListener('click', function (event) { var button = event.target.closest('[data-lead-id]'); if (!button) return; var id = Number(button.dataset.leadId); showLead(leads.find(function (lead) { return lead.id === id; })); });
+    E.q('#runFlowBtn').addEventListener('click', runFlow); E.q('#runFlowBtnSecondary').addEventListener('click', runFlow); E.q('#resetFlowBtn').addEventListener('click', resetFlow); E.q('#reviewLeadBtn').addEventListener('click', reviewTopLead); E.q('#newLeadBtn').addEventListener('click', openNewLead); E.q('#branchBtn').addEventListener('click', showBranch); E.q('#digestBtn').addEventListener('click', showDigest); E.q('#digestBtnSecondary').addEventListener('click', showDigest); E.q('#resetBtn').addEventListener('click', resetDemo);
+  }());
+  </script>
+</body>
+</html>

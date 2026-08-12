@@ -1,0 +1,119 @@
+name: Static safety
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static-safety:
+    name: Static safety
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Check JavaScript syntax
+        run: node --check v2-core.js
+
+      - name: Validate static safety policy
+        run: |
+          node <<'NODE'
+          'use strict';
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const vm = require('node:vm');
+
+          const root = process.cwd();
+          const required = [
+            'index.html', 'v2-core.js', 'v2-theme.css', 'CNAME', '.nojekyll',
+            '.gitattributes', '.gitignore', 'README.md', '.github/workflows/validate.yml'
+          ];
+          const allowedUrls = new Set([
+            'https://engaz.premiumpower-eg.com/',
+            'https://clinic.engaz.premiumpower-eg.com/',
+            'https://lab.engaz.premiumpower-eg.com/',
+            'https://automation.engaz.premiumpower-eg.com/'
+          ]);
+          const failures = [];
+          const fail = (message) => failures.push(message);
+          const exists = (relative) => fs.existsSync(path.join(root, relative));
+
+          required.forEach((file) => { if (!exists(file)) fail(`missing required file: ${file}`); });
+          if (exists('CNAME')) {
+            const cname = fs.readFileSync(path.join(root, 'CNAME'), 'utf8').trim();
+            if (cname !== 'automation.engaz.premiumpower-eg.com') fail(`unexpected CNAME: ${cname}`);
+          }
+
+          function walk(directory) {
+            const entries = fs.readdirSync(directory, { withFileTypes: true });
+            const result = [];
+            entries.forEach((entry) => {
+              if (entry.name === '.git') return;
+              const absolute = path.join(directory, entry.name);
+              if (entry.isDirectory()) result.push(...walk(absolute));
+              else result.push(path.relative(root, absolute).replaceAll(path.sep, '/'));
+            });
+            return result;
+          }
+
+          const files = walk(root);
+          const forbiddenPath = /(^|\/)(?:node_modules|\.env(?:\.|\/|$)|dist|build)(?:\/|$)|\.(?:pem|key)$/i;
+          files.forEach((file) => { if (forbiddenPath.test(file)) fail(`forbidden path: ${file}`); });
+          files.forEach((file) => {
+            const bytes = fs.readFileSync(path.join(root, file));
+            for (const byte of bytes) if (byte === 13) fail(`CR line ending: ${file}`);
+          });
+
+          const runtimeFiles = ['index.html', 'v2-core.js', 'v2-theme.css'];
+          const runtime = runtimeFiles.map((file) => fs.readFileSync(path.join(root, file), 'utf8')).join('\n');
+          if (/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*\bnoindex\b[^"']*\bnofollow\b/i.test(fs.readFileSync(path.join(root, 'index.html'), 'utf8')) === false) fail('robots must retain noindex,nofollow');
+          if (/fonts\.googleapis|fonts\.gstatic|@import\s+url/i.test(runtime)) fail('Google Fonts or CSS import found');
+          if (/(?:^|[^\d])01[0125]\d{8}(?!\d)/.test(runtime)) fail('Egyptian mobile number found');
+          if (/-----BEGIN [^-]+ PRIVATE KEY-----|\b(?:gh[pousr]|sk|pk)_[A-Za-z0-9]{16,}\b|\bAKIA[0-9A-Z]{16}\b/i.test(runtime)) fail('credential-like value found');
+          if (/(?:api[_-]?key|client[_-]?secret|password|passwd|access[_-]?token)\s*[:=]\s*["']?[A-Za-z0-9/+_.-]{8,}/i.test(runtime)) fail('credential assignment found');
+          if (/\b(?:fetch|XMLHttpRequest|sendBeacon|WebSocket|EventSource|localStorage|sessionStorage|indexedDB)\b|document\.cookie|navigator\.serviceWorker/i.test(runtime)) fail('forbidden network or persistence API found');
+
+          const absoluteUrlPattern = /https?:\/\/[^\s"'<>`)}\]]+/g;
+          files.forEach((file) => {
+            const text = fs.readFileSync(path.join(root, file), 'utf8');
+            (text.match(absoluteUrlPattern) || []).forEach((raw) => {
+              const url = raw.replace(/[.,;:!?]+$/, '');
+              if (!allowedUrls.has(url)) fail(`URL outside allowlist in ${file}: ${url}`);
+            });
+          });
+
+          const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+          const ids = new Set();
+          for (const match of html.matchAll(/\bid\s*=\s*["']([^"']+)["']/gi)) {
+            if (ids.has(match[1])) fail(`duplicate id: ${match[1]}`);
+            ids.add(match[1]);
+          }
+          for (const match of html.matchAll(/\b(?:aria-labelledby|aria-describedby|aria-controls|aria-owns|for)\s*=\s*["']([^"']+)["']/gi)) {
+            match[1].split(/\s+/).forEach((id) => { if (id && !ids.has(id)) fail(`ARIA/label target missing: ${id}`); });
+          }
+          for (const match of html.matchAll(/\b(?:href|src)\s*=\s*["']([^"']+)["']/gi)) {
+            const ref = match[1];
+            if (ref.startsWith('#') || /^[a-z][a-z0-9+.-]*:/i.test(ref)) {
+              if (ref.startsWith('#') && !ids.has(ref.slice(1))) fail(`anchor target missing: ${ref}`);
+              if (/^javascript:/i.test(ref)) fail(`javascript URL found: ${ref}`);
+              if (/^https?:\/\//i.test(ref) && !allowedUrls.has(ref)) fail(`HTML URL outside allowlist: ${ref}`);
+              continue;
+            }
+            const local = ref.split(/[?#]/, 1)[0];
+            if (local && !exists(local)) fail(`broken local reference: ${ref}`);
+          }
+
+          const blocks = [...html.matchAll(/<script\b(?![^>]*\bsrc\s*=)[^>]*>([\s\S]*?)<\/script>/gi)].map((match) => match[1]);
+          if (!blocks.length) fail('no inline script found');
+          try { new vm.Script(blocks.join('\n'), { filename: 'index-inline.js' }); }
+          catch (error) { fail(`inline JavaScript syntax: ${error.message}`); }
+
+          if (failures.length) {
+            console.error(failures.join('\n'));
+            process.exit(1);
+          }
+          console.log(`Static safety passed: ${files.length} files checked.`);
+          NODE

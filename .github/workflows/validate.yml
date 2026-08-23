@@ -29,7 +29,7 @@ jobs:
           const root = process.cwd();
           const required = [
             'index.html', 'v2-core.js', 'v2-theme.css', 'CNAME', '.nojekyll',
-            '.gitattributes', '.gitignore', 'README.md', '.github/workflows/validate.yml'
+            '.gitattributes', '.gitignore', 'README.md', 'PROJECT_GUIDE.md', '.github/workflows/validate.yml'
           ];
           const allowedUrls = new Set([
             'https://engaz.premiumpower-eg.com/',
